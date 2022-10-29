@@ -1,0 +1,41 @@
+{
+  "author": {
+    "email": "doinki94@gmail.com",
+    "name": "doinki",
+    "url": "https://github.com/doinki"
+  },
+  "bugs": "https://github.com/doinki/eslint-plugin-salt/issues",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/doinki/eslint-plugin-salt#readme",
+  "keywords": [
+    "eslint",
+    "react"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "eslint-plugin-salt",
+  "packageManager": "yarn@3.2.4",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rimraf dist && rollup -c"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/eslint": "^8.4.9",
+    "@types/estree": "^1.0.0",
+    "eslint": "^8.26.0",
+    "react": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.2.3",
+    "typescript": "^4.8.4"
+  }
+}
