@@ -40,20 +40,20 @@ const Hooks: Rule.RuleModule = {
           return;
         }
 
-        const dependencyArrayNode = getDependencyList(node.arguments);
+        const dependencyList = getDependencyList(node.arguments);
 
-        if (!dependencyArrayNode) {
+        if (!dependencyList) {
           return;
         }
 
-        const names = getNames(getIdentifiers(dependencyArrayNode.elements));
+        const names = getNames(getIdentifiers(dependencyList.elements));
         const sortedNames = sort(names, options);
 
         if (isShallowEqual(names, sortedNames)) {
           return;
         }
 
-        const range = dependencyArrayNode.range;
+        const range = dependencyList.range;
 
         if (!range) {
           return;
@@ -66,7 +66,7 @@ const Hooks: Rule.RuleModule = {
               sortedNames.join(', ').trim()
             ),
           message: "Hook's Dependency List should be sorted alphabetically",
-          node: dependencyArrayNode,
+          node: dependencyList,
         });
       },
     };
