@@ -1,6 +1,6 @@
 import { RuleTester } from 'eslint';
 
-import Hooks from '../src/lib/rules/hooks';
+import hooks from '../src/lib/rules/hooks';
 
 (RuleTester as any).setDefaultConfig({
   parserOptions: {
@@ -15,7 +15,7 @@ import Hooks from '../src/lib/rules/hooks';
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('hooks', Hooks, {
+ruleTester.run('hooks', hooks, {
   valid: [
     `
 import { useCallback, useState } from 'react';

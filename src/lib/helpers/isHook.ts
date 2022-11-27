@@ -9,6 +9,7 @@ function isHook(node: CallExpression & Rule.NodeParentExtension): boolean {
   switch (node.callee.name) {
     case 'useCallback':
     case 'useEffect':
+    case 'useImperativeHandle':
     case 'useLayoutEffect':
     case 'useMemo':
       return true;

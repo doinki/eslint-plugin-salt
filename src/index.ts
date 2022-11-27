@@ -1,7 +1,7 @@
-import Hooks from './lib/rules/hooks';
+import hooks from './lib/rules/hooks';
 
 export default {
   rules: {
-    hooks: Hooks,
+    hooks,
   },
 };

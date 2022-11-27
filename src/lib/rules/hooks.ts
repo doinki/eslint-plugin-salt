@@ -8,7 +8,7 @@ import isShallowEqual from '../helpers/isShallowEqual';
 import sort from '../helpers/sort';
 import type { SortOptions } from '../types';
 
-const Hooks: Rule.RuleModule = {
+const hooks: Rule.RuleModule = {
   meta: {
     docs: {
       description: "Enforce `Hook's Dependency List`",
@@ -73,4 +73,4 @@ const Hooks: Rule.RuleModule = {
   },
 };
 
-export default Hooks;
+export default hooks;
