@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-import getDependencyList from '../helpers/getDependencyList';
+import getDependencies from '../helpers/getDependencies';
 import getIdentifiers from '../helpers/getIdentifiers';
 import getNames from '../helpers/getNames';
 import isHook from '../helpers/isHook';
@@ -8,12 +8,12 @@ import isShallowEqual from '../helpers/isShallowEqual';
 import sort from '../helpers/sort';
 import type { SortOptions } from '../types';
 
-const hooks: Rule.RuleModule = {
+const reactHookDependencies: Rule.RuleModule = {
   meta: {
     docs: {
-      description: "Enforce `Hook's Dependency List`",
+      description: 'Enforce `React Hook Dependencies`',
       recommended: true,
-      url: 'https://github.com/doinki/eslint-plugin-salt/blob/main/docs/rules/hooks.md',
+      url: 'https://github.com/doinki/eslint-plugin-salt/blob/main/docs/rules/react-hook-dependencies.md',
     },
     fixable: 'code',
     type: 'suggestion',
@@ -40,20 +40,20 @@ const hooks: Rule.RuleModule = {
           return;
         }
 
-        const dependencyList = getDependencyList(node.arguments);
+        const dependencies = getDependencies(node.arguments);
 
-        if (!dependencyList) {
+        if (!dependencies) {
           return;
         }
 
-        const names = getNames(getIdentifiers(dependencyList.elements));
+        const names = getNames(getIdentifiers(dependencies.elements));
         const sortedNames = sort(names, options);
 
         if (isShallowEqual(names, sortedNames)) {
           return;
         }
 
-        const range = dependencyList.range;
+        const { range } = dependencies;
 
         if (!range) {
           return;
@@ -65,12 +65,12 @@ const hooks: Rule.RuleModule = {
               [range[0] + 1, range[1] - 1],
               sortedNames.join(', ').trim()
             ),
-          message: "Hook's Dependency List should be sorted alphabetically",
-          node: dependencyList,
+          message: 'React Hook Dependencies should be sorted alphabetically',
+          node: dependencies,
         });
       },
     };
   },
 };
 
-export default hooks;
+export default reactHookDependencies;

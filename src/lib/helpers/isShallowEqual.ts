@@ -1,7 +1,9 @@
 function isShallowEqual(a: string[], b: string[]): boolean {
-  const length = Math.max(a.length, b.length);
+  if (a.length !== b.length) {
+    return false;
+  }
 
-  for (let i = 0; i < length; ++i) {
+  for (let i = 0; i < a.length; ++i) {
     if (a[i] !== b[i]) {
       return false;
     }

@@ -1,4 +1,4 @@
-# salt/hooks
+# salt/react-hook-dependencies
 
 ## Rule Details
 
@@ -45,7 +45,7 @@ useMemo(() => {
 ## Rule Options
 
 ```js
-"salt/hooks": [<enabled>, { "callbacksLast": <boolean> }]
+"salt/react-hook-dependencies": [<enabled>, { "callbacksLast": <boolean> }]
 ```
 
 ### `callbacksLast` (default: `true`)

@@ -6,10 +6,10 @@ function isArrayExpression<T extends Expression | SpreadElement>(
   return value.type === 'ArrayExpression';
 }
 
-function getDependencyList(
+function getDependencies(
   args: (Expression | SpreadElement)[]
 ): ArrayExpression | undefined {
   return args.find(isArrayExpression);
 }
 
-export default getDependencyList;
+export default getDependencies;

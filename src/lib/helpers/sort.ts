@@ -21,7 +21,7 @@ function sort(names: string[], options: SortOptions): string[] {
   first.sort();
   last.sort();
 
-  return first.concat(last);
+  return [...first, ...last];
 }
 
 export default sort;

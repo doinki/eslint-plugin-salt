@@ -1,7 +1,7 @@
-import hooks from './lib/rules/hooks';
+import reactHookDependencies from './lib/rules/reactHookDependencies';
 
 export default {
   rules: {
-    hooks,
+    'react-hook-dependencies': reactHookDependencies,
   },
 };

@@ -1,6 +1,6 @@
 import { RuleTester } from 'eslint';
 
-import hooks from '../src/lib/rules/hooks';
+import reactHookDependencies from '../src/lib/rules/reactHookDependencies';
 
 (RuleTester as any).setDefaultConfig({
   parserOptions: {
@@ -15,7 +15,7 @@ import hooks from '../src/lib/rules/hooks';
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('hooks', hooks, {
+ruleTester.run('reactHookDependencies', reactHookDependencies, {
   valid: [
     `
 import { useCallback, useState } from 'react';
@@ -120,7 +120,7 @@ export default Test;
 `,
       errors: [
         {
-          message: "Hook's Dependency List should be sorted alphabetically",
+          message: 'React Hook Dependencies should be sorted alphabetically',
           type: 'ArrayExpression',
         },
       ],
@@ -161,7 +161,7 @@ export default Test;
 `,
       errors: [
         {
-          message: "Hook's Dependency List should be sorted alphabetically",
+          message: 'React Hook Dependencies should be sorted alphabetically',
           type: 'ArrayExpression',
         },
       ],
@@ -201,7 +201,7 @@ export default Test;
 `,
       errors: [
         {
-          message: "Hook's Dependency List should be sorted alphabetically",
+          message: 'React Hook Dependencies should be sorted alphabetically',
           type: 'ArrayExpression',
         },
       ],
@@ -239,7 +239,7 @@ export default Test;
 `,
       errors: [
         {
-          message: "Hook's Dependency List should be sorted alphabetically",
+          message: 'React Hook Dependencies should be sorted alphabetically',
           type: 'ArrayExpression',
         },
       ],
