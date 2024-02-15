@@ -1,11 +1,11 @@
-import type { SpreadElement, Expression, Identifier } from 'estree';
+import { type Expression, type Identifier, type SpreadElement } from 'estree';
 
 function isNotNull<T>(value: T): value is NonNullable<T> {
   return value != null;
 }
 
 function isIdentifier<T extends Expression | SpreadElement>(
-  value: T
+  value: T,
 ): value is T & Identifier {
   return value.type === 'Identifier';
 }

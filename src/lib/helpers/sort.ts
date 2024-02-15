@@ -1,4 +1,4 @@
-import { SortOptions } from '../types';
+import { type SortOptions } from '../types';
 
 function sort(names: string[], options: SortOptions): string[] {
   if (!options.callbacksLast) {
