@@ -1,5 +1,5 @@
-import type { Rule } from 'eslint';
-import type { CallExpression } from 'estree';
+import { type Rule } from 'eslint';
+import { type CallExpression } from 'estree';
 
 function isHook(node: CallExpression & Rule.NodeParentExtension): boolean {
   if (!('name' in node.callee)) {

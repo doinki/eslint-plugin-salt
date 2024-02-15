@@ -1,4 +1,4 @@
-import type { Identifier } from 'estree';
+import { type Identifier } from 'estree';
 
 function getNames(identifiers: Identifier[]) {
   return identifiers.map((identifier) => identifier.name);

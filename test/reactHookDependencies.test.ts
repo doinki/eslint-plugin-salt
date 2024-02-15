@@ -16,89 +16,6 @@ import reactHookDependencies from '../src/lib/rules/reactHookDependencies';
 const ruleTester = new RuleTester();
 
 ruleTester.run('reactHookDependencies', reactHookDependencies, {
-  valid: [
-    `
-import { useCallback, useState } from 'react';
-
-const Test = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
-  const handleClick = useCallback(() => {
-    setA(a + 1);
-    setB(b + 1);
-  }, [a, b]);
-
-  return <div>Test</div>;
-}
-
-export default Test;
-`,
-    `
-import { useEffect, useState } from 'react';
-
-const Test = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
-  useEffect(() => {
-    console.log(a, b);
-  }, [a, b]);
-
-  return <div>App</div>;
-}
-
-export default Test;
-`,
-    `
-import { useLayoutEffect, useState } from 'react';
-
-const Test = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
-  useLayoutEffect(() => {
-    console.log(a, b);
-  }, [a, b]);
-
-  return <div>App</div>;
-}
-
-export default Test;
-`,
-    `
-import { useMemo, useState } from 'react';
-
-const Test = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
-  const c = useMemo(() => a + b, [a, b]);
-
-  return <div>Test</div>;
-}
-
-export default Test;
-`,
-    `
-import { useState } from 'react';
-
-import useCustomHook from './useCustomHook';
-
-const Test = () => {
-  const [a, setA] = useState(0);
-  const [b, setB] = useState(0);
-
-  useCustomHook(() => {
-    console.log(a, b);
-  }, [b, a])
-
-  return <div>Test</div>;
-}
-
-export default Test;
-`,
-  ],
   invalid: [
     {
       code: `
@@ -258,5 +175,88 @@ const Test = () => {
 export default Test;
 `,
     },
+  ],
+  valid: [
+    `
+import { useCallback, useState } from 'react';
+
+const Test = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  const handleClick = useCallback(() => {
+    setA(a + 1);
+    setB(b + 1);
+  }, [a, b]);
+
+  return <div>Test</div>;
+}
+
+export default Test;
+`,
+    `
+import { useEffect, useState } from 'react';
+
+const Test = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  useEffect(() => {
+    console.log(a, b);
+  }, [a, b]);
+
+  return <div>App</div>;
+}
+
+export default Test;
+`,
+    `
+import { useLayoutEffect, useState } from 'react';
+
+const Test = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  useLayoutEffect(() => {
+    console.log(a, b);
+  }, [a, b]);
+
+  return <div>App</div>;
+}
+
+export default Test;
+`,
+    `
+import { useMemo, useState } from 'react';
+
+const Test = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  const c = useMemo(() => a + b, [a, b]);
+
+  return <div>Test</div>;
+}
+
+export default Test;
+`,
+    `
+import { useState } from 'react';
+
+import useCustomHook from './useCustomHook';
+
+const Test = () => {
+  const [a, setA] = useState(0);
+  const [b, setB] = useState(0);
+
+  useCustomHook(() => {
+    console.log(a, b);
+  }, [b, a])
+
+  return <div>Test</div>;
+}
+
+export default Test;
+`,
   ],
 });
